@@ -1,0 +1,186 @@
+@import './vars.scss';
+@import './animate.css';
+
+.nopadding{
+    padding: 0;
+}
+
+.nopadding-left{
+    padding-left: 0;
+}
+
+.center, .wrapper{
+    @media screen and (max-width: 991px) {
+        min-width: initial;
+    }
+}
+
+strong{ 
+    font-weight: bold !important;
+}
+
+#landing_cobertura_metro{
+    padding-bottom: 50px;
+    .title{
+        margin-top: 150px;
+        text-align: center;
+        border-bottom: 1px solid $color-gray;
+        margin-bottom: 40px;
+        h1{
+            display: inline-block;
+            line-height: 4.0625rem;
+            border-bottom: 2px solid $color-red;
+            color: $color-black; 
+            font-weight: 700;
+            font-size: 2.1875rem;
+        }
+    }
+
+    .coverage-search{
+        &__subtitle{
+            line-height: 1.5625rem;
+            margin-bottom: 55px;
+            font-weight: 300;
+            color: #525252;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        &__header{
+            .header-tabs{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                &__tab{
+                    width: 270px;
+                    height: 226px;
+                    margin: 0px 20px;
+                    border: 2px solid rgba(211,211,211,0.3);
+                    border-radius: 5px;
+                    color: #999999;
+                    font-size: 19px;
+                    font-weight: 600;
+                    padding: 0 20px;
+                    i{
+                        font-size: 80px;
+                        // font-weight: 400;
+                        // font-style: normal;
+                        display: block;
+                        margin-bottom: 22px;
+                    }
+
+                    &:hover{
+                        border: 2px solid $color-gray-dark;
+                        color: $color-black;
+                    }
+
+                    &.active{
+                        border: 2px solid $color-red;
+                        color: #333333;
+                    }
+                }
+            }
+        }
+
+        &__container{
+            text-align: center;
+            margin-top: 50px;
+            
+            &__food{
+                display: none;
+                width: 980px;
+                max-width: 100%;
+                margin: auto;
+                min-height: 250px;
+                position: relative;
+                .grid-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    grid-template-rows: 1fr;
+                    grid-template-areas: "sideBar centerBox centerBox centerBox";
+                    .sideBar{
+                        grid-area: sideBar;
+                        border-top: 2px solid $color-red;
+                        padding: 2px 14px 5px 14px;
+                        background: #f5f5f5;
+                        margin-right: 30px;
+                        padding: 2px 15px 5px;
+                        &__box{
+                            max-height: 469px;
+                            overflow: auto; 
+                            button.tabLinksImg{
+                                height: 41px;
+                                padding-bottom: 1px;
+                                font-size: 15px;
+                                font-weight: 300;
+                                color: #636363;
+                                width: 100%;
+                                text-align: left;
+                                transition: all .25s;
+                                &.active{
+                                    color: $color-red;
+                                    border-bottom: 1px solid $color-red;
+                                }
+                            }
+                        }
+                    }
+    
+                    .centerBox{
+                        grid-area: centerBox;
+                        background: transparent;
+                        img{
+                            width: 100%;
+                            display: none;
+                        }
+
+                        #b-img-01{
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            &__nonfood{
+                display: none;
+                &__zones{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    .zone{
+                        color: rgba(153,153,153,0.8);
+                        margin: 0 35px;
+                        margin-top: 35px;
+                        margin-bottom: 0px;
+                        width: 100px;
+                        height: 136px;
+                        font-size: 16px;
+                        font-weight: 300;
+                        text-transform: capitalize;
+                        i{
+                            margin-bottom: 15px;
+                            font-size: 100px;
+                            font-weight: 400;
+                            font-style: normal;
+                            display: block;
+                        }
+
+                        &:hover{
+                            color: #999;
+                        }
+
+                        &.active{
+                            color: $color-red;
+                        }
+                    }
+                }
+
+                &__info{
+                    margin-top: 50px;
+                    .tabContentZone{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
