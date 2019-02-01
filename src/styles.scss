@@ -178,6 +178,51 @@ strong{
                     margin-top: 50px;
                     .tabContentZone{
                         display: none;
+                        width: 980px;
+                        max-width: 100%;
+                        margin: auto;
+                        min-height: 250px;
+                        position: relative;
+                        .grid-container{
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr 1fr;
+                            grid-template-rows: 1fr;
+                            grid-template-areas: "sideBar centerBox centerBox centerBox";
+                            border-top: 2px solid $color-red;
+                            .sideBar{
+                                grid-area: sideBar;
+                                padding: 2px 14px 5px 14px;
+                                background: #f5f5f5;
+                                padding: 2px 15px 5px;
+                                &__box{
+                                    max-height: 469px;
+                                    overflow: auto; 
+                                    padding-top: 15px;
+                                    padding-bottom: 30px;
+                                    min-width: 280px;
+                                    button{
+                                        height: 41px;
+                                        padding-bottom: 1px;
+                                        font-size: 15px;
+                                        font-weight: 300;
+                                        color: #636363;
+                                        width: 100%;
+                                        text-align: left;
+                                        transition: all .25s;
+                                        text-transform: lowercase;
+                                        &.active{
+                                            color: $color-red;
+                                            border-bottom: 1px solid $color-red;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .centerBox{
+                                grid-area: centerBox;
+                                background: lightgray;
+                            }
+                        }
                     }
                 }
             }
