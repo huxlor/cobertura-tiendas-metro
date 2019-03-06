@@ -15,6 +15,10 @@
     }
 }
 
+.wrapper{
+    position: initial;
+}
+
 strong{ 
     font-weight: bold !important;
 }
@@ -98,6 +102,7 @@ strong{
                     grid-template-columns: 1fr 1fr 1fr 1fr;
                     grid-template-rows: 1fr;
                     grid-template-areas: "sideBar centerBox centerBox centerBox";
+                    min-height: 500px;
                     .sideBar{
                         grid-area: sideBar;
                         border-top: 2px solid $color-red;
@@ -131,10 +136,31 @@ strong{
                         img{
                             width: 100%;
                             display: none;
+                            cursor: zoom-in;
+                            height: auto;
+                            &.zoom{
+                                position: absolute;
+                                width: 60vw;
+                                left: calc(50% - 30vw);
+                                top: 10%;
+                                height: auto;
+                                cursor: zoom-out;
+                            }
                         }
 
                         #b-img-01{
                             display: block;
+                        }
+
+                        &__hideBox{
+                            &.zoomBox{
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100vh;
+                                background-color: #fff;
+                            }
                         }
                     }
                 }
@@ -189,13 +215,14 @@ strong{
                             grid-template-rows: 1fr;
                             grid-template-areas: "sideBar centerBox centerBox centerBox";
                             border-top: 2px solid $color-red;
+                            min-height: 700px;
                             .sideBar{
                                 grid-area: sideBar;
                                 padding: 2px 14px 5px 14px;
                                 background: #f5f5f5;
                                 padding: 2px 15px 5px;
                                 &__box{
-                                    max-height: 469px;
+                                    max-height: 650px;
                                     overflow: auto; 
                                     padding-top: 15px;
                                     padding-bottom: 30px;
@@ -210,9 +237,14 @@ strong{
                                         text-align: left;
                                         transition: all .25s;
                                         text-transform: lowercase;
+                                        font-weight: 600;
                                         &.active{
                                             color: $color-red;
                                             border-bottom: 1px solid $color-red;
+                                        }
+
+                                        &::first-letter{
+                                            text-transform: uppercase;
                                         }
                                     }
                                 }
@@ -220,7 +252,52 @@ strong{
 
                             .centerBox{
                                 grid-area: centerBox;
-                                background: lightgray;
+                                // background: lightgray;
+                                ul{
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    flex-direction: column;
+                                    flex-grow: 2;
+                                    padding: 50px 43px;
+                                    margin-left: 20px;
+                                    background: #fff;
+                                    max-height: 650px;
+                                    padding-left: 20px !important;
+                                    overflow: hidden;
+                                    overflow-x: auto;
+                                    text-align: left;
+                                    li{
+                                        line-height: 35px;
+                                        font-size: 15px;
+                                        font-weight: 400;
+                                        margin-right: 40px;
+                                        &::before{
+                                            content: "•";
+                                            font-size: 20px;
+                                            color: $color-red;
+                                            margin-right: 8px;
+                                        }
+                                    }
+
+                                    &::-webkit-scrollbar-track
+                                    {
+                                        -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+                                        background-color: #F5F5F5;
+                                    }
+
+                                    &::-webkit-scrollbar
+                                    {
+                                        width: 2px;
+                                        height: 5px;
+                                        background-color: #F5F5F5;
+                                    }
+
+                                    &::-webkit-scrollbar-thumb
+                                    {
+                                        background-color: $color-gray;
+                                        width: 2px;
+                                    }
+                                }
                             }
                         }
                     }
