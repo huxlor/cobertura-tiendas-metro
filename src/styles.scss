@@ -37,6 +37,17 @@ strong{
             color: $color-black; 
             font-weight: 700;
             font-size: 2.1875rem;
+            @media screen and (max-width: 760px) {
+                font-size: 6vw; 
+            }
+
+            @media screen and (max-width: 450px) {
+                font-size: 5vw; 
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            margin-bottom: 15px;
         }
     }
 
@@ -48,6 +59,9 @@ strong{
             color: #525252;
             text-align: center;
             font-size: 25px;
+            @media screen and (max-width: 760px) {
+                font-size: 5vw; 
+            }
         }
 
         &__header{
@@ -55,6 +69,9 @@ strong{
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
+                @media screen and (max-width: 644px) {
+                    flex-wrap: nowrap; 
+                }
                 &__tab{
                     width: 270px;
                     height: 226px;
@@ -81,6 +98,18 @@ strong{
                     &.active{
                         border: 2px solid $color-red;
                         color: #333333;
+                    }
+
+                    @media screen and (max-width: 644px) {
+                        width: 50%;
+                        height: auto;
+                        padding: 20px;
+                        font-size: 12px;
+                        margin: 0px 5px;
+                        i{
+                            font-size: 50px;
+                            margin-bottom: 12px;
+                        }
                     }
                 }
             }
@@ -128,6 +157,11 @@ strong{
                                 }
                             }
                         }
+
+                        @media screen and (max-width: 760px) {
+                            margin-right: 0px;
+                            height: 100px;
+                        }
                     }
     
                     .centerBox{
@@ -140,11 +174,16 @@ strong{
                             height: auto;
                             &.zoom{
                                 position: absolute;
-                                width: 60vw;
-                                left: calc(50% - 30vw);
+                                width: 70vw;
+                                left: calc(50% - 35vw);
                                 top: 10%;
                                 height: auto;
                                 cursor: zoom-out;
+                                @media screen and (max-width: 760px) {
+                                    width: 100vw;
+                                    left: calc(50% - 50vw);
+                                    top: 30%;
+                                }
                             }
                         }
 
@@ -162,6 +201,13 @@ strong{
                                 background-color: #fff;
                             }
                         }
+                    }
+
+                    @media screen and (max-width: 760px) {
+                        grid-template-columns: 1fr;
+                        grid-template-rows: .5fr 1fr;
+                        grid-template-areas: "sideBar"
+                                             "centerBox";
                     }
                 }
             }
@@ -197,6 +243,20 @@ strong{
                         &.active{
                             color: $color-red;
                         }
+
+                        @media screen and (max-width: 760px) {
+                            width: 33%;
+                            height: auto;
+                            font-size: 13px;
+                            margin: 0 15px;
+                            i{
+                                font-size: 70px;
+                            }
+                        }
+                    }
+
+                    @media screen and (max-width: 760px) {
+                        flex-wrap: nowrap;
                     }
                 }
 
@@ -298,6 +358,13 @@ strong{
                                         width: 2px;
                                     }
                                 }
+                            }
+
+                            @media screen and (max-width: 760px) {
+                                grid-template-columns: 1fr;
+                                grid-template-rows: .5fr 1fr;
+                                grid-template-areas: "sideBar"
+                                                     "centerBox";
                             }
                         }
                     }

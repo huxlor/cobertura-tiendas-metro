@@ -39,19 +39,28 @@ function defaultDepartment(idDepartment, department, idZone, zone){
 }
 
 function imageZoom(idImage){
+  let containerImages = $('.centerBox__hideBox');
+  let containerFood = $('#food');
+  let containerAll = $('html');
+
   $(idImage).click(()=>{
     if ($(idImage).hasClass('zoom')) {
       $(idImage).removeClass('zoom');
-      $('.centerBox__hideBox').removeClass('zoomBox');
-      $('#food').css('position','relative');
-      $('html').css('overflow-y','scroll');
+      containerImages.removeClass('zoomBox');
+      containerFood.css('position','relative');
+      containerAll.css('overflow-y','scroll');
+      
     } else {
       $(idImage).addClass('zoom');
-      $('#food').css('position','initial');
-      $('.centerBox__hideBox').addClass('zoomBox');
-      $('html').css('overflow-y','hidden');
+      containerFood.css('position','initial');
+      containerImages.addClass('zoomBox');
+      containerAll.css('overflow-y','hidden'); 
     }
   });
+}
+
+function accordionMobile(){
+
 }
 
 
@@ -81,7 +90,7 @@ $(document).ready(function() {
   // console.log(Departamentos);
 
   DepartamentosN.forEach((departamento , i) => {
-    $(".coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box").append('<button class="btn-'+ i +'">' + departamento + '</button>');
+    $(".coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
     defaultDepartment('0', departamento, 'norte' ,'ZONA NORTE');
     $('.coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box button.btn-'+i+'').on("click", function() {
@@ -90,7 +99,7 @@ $(document).ready(function() {
   }); 
 
   DepartamentosC.forEach((departamento, i) => {
-    $(".coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box").append('<button class="btn-'+ i +'">' + departamento + '</button>');
+    $(".coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
     defaultDepartment('0', departamento, 'centro', 'ZONA CENTRO');
     $('.coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box button.btn-'+i+'').on("click", function() {
@@ -99,10 +108,24 @@ $(document).ready(function() {
   });
 
   DepartamentosS.forEach((departamento, i) => {
-    $(".coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box").append('<button class="btn-'+ i +'">' + departamento + '</button>');
+    $(".coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
     defaultDepartment('0', departamento, 'sur', 'ZONA SUR');
-    $('.coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box button.btn-'+i+'').on("click", function() {
+    $('.coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) {
+      // Accordion
+      let eventBtn = e.target;
+      let classBtn = eventBtn.classList[0];
+      $('.'+classBtn).after( '<ul class="' + classBtn + '-mobile btn-mobile">Hello</ul>' );
+      console.log(eventBtn.classList[0]); 
+
+      // if (condition) {
+        
+      // } else {
+        
+      // }
+
+
+      // Accordion 
       defaultDepartment(i, departamento, 'sur', 'ZONA SUR'); 
     }); 
   });
@@ -112,7 +135,7 @@ $(document).ready(function() {
 
 imageZoom('#b-img-01');
 imageZoom('#b-img-02');
-  
+
 }); 
 
 
