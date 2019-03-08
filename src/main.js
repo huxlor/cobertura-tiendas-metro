@@ -59,8 +59,13 @@ function imageZoom(idImage){
   });
 }
 
-function accordionMobile(){
-
+function accordionMobile(idDepartment, department, idZone, zone){
+  $('.coverage-search__container__nonfood__info #z-'+ idZone + ' .grid-container .sideBar__box button').removeClass('active');
+  $('.coverage-search__container__nonfood__info #z-'+ idZone + ' .grid-container .sideBar__box button.btn-'+ idDepartment +'').addClass('active');
+  $('.coverage-search__container__nonfood__info #z-'+ idZone + ' .grid-container .sideBar__box ul.btn-mobile').html(' ');
+  coberturaData[zone][department].forEach((element) => {
+    $('.coverage-search__container__nonfood__info #z-'+ idZone +' .grid-container .sideBar__box ul.btn-mobile').append('<li>'+element+'</li>');
+  });
 }
 
 
@@ -90,7 +95,7 @@ $(document).ready(function() {
   // console.log(Departamentos);
 
   DepartamentosN.forEach((departamento , i) => {
-    $(".coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn">' + departamento + '</button>');
+    $(".coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn btn-norte">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
     defaultDepartment('0', departamento, 'norte' ,'ZONA NORTE');
     $('.coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box button.btn-'+i+'').on("click", function() {
@@ -99,7 +104,7 @@ $(document).ready(function() {
   }); 
 
   DepartamentosC.forEach((departamento, i) => {
-    $(".coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn">' + departamento + '</button>');
+    $(".coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn btn-centro">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
     defaultDepartment('0', departamento, 'centro', 'ZONA CENTRO');
     $('.coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box button.btn-'+i+'').on("click", function() {
@@ -108,21 +113,24 @@ $(document).ready(function() {
   });
 
   DepartamentosS.forEach((departamento, i) => {
-    $(".coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn">' + departamento + '</button>');
+    $(".coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn btn-sur">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
     defaultDepartment('0', departamento, 'sur', 'ZONA SUR');
     $('.coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) {
       // Accordion
       let eventBtn = e.target;
       let classBtn = eventBtn.classList[0];
-      $('.'+classBtn).after( '<ul class="' + classBtn + '-mobile btn-mobile">Hello</ul>' );
-      console.log(eventBtn.classList[0]); 
 
-      // if (condition) {
-        
-      // } else {
-        
-      // }
+      if ($('.sideBar__box').find('.btn-mobile').length > 0) {
+        $('.btn-mobile').remove();
+        $('.'+classBtn+'.btn-sur').after( '<ul class="' + classBtn + '-mobile btn-mobile"></ul>' );
+        // Render of Department
+        accordionMobile(i, departamento, 'sur', 'ZONA SUR');
+
+      } else {
+        $('.'+classBtn+'.btn-sur').after( '<ul class="' + classBtn + '-mobile btn-mobile"></ul>' );
+        accordionMobile(i, departamento, 'sur', 'ZONA SUR');
+      }
 
 
       // Accordion 
