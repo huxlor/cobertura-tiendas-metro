@@ -3,14 +3,18 @@ require('./styles.scss');
 
 var coberturaData = require('./cobertura-metro-obj');
 
+// Tabs Shipping and Zones 
 
-// // var Vue = require('vue');
-// import Vue from 'vue';
-
+/**
+ * This function handles the click over the tabs of Department
+ * 
+ * @param {Event} evt Click event
+ * @param {String} type ID of the parent element
+ * @param {String} oneClass Class of the element which shows the content
+ * @param {String} twoClass Class of the button which receives the click
+ */
 function changeType(evt, type, oneClass, twoClass){
-  let i;
-  let tabContent;
-  let tabLinks;
+  let i,tabContent,tabLinks;
 
   // Get all elements with class="tabcontent" and hide them
   tabContent = $(oneClass);
@@ -29,6 +33,16 @@ function changeType(evt, type, oneClass, twoClass){
   evt.currentTarget.className += " active";
 }
 
+
+/**
+ * This functions render the cities based on the idZone
+ * 
+ * @param {String} idDepartment Index of list
+ * @param {Element} department Current element of the list 
+ * @param {String} idZone Should be "norte", "centro", "sur"
+ * @param {String} zone Datatype which origins from the JSON file of zones
+ */
+
 function defaultDepartment(idDepartment, department, idZone, zone){
   $('.coverage-search__container__nonfood__info #z-'+ idZone + ' .grid-container .sideBar__box button').removeClass('active');
   $('.coverage-search__container__nonfood__info #z-'+ idZone + ' .grid-container .sideBar__box button.btn-'+ idDepartment +'').addClass('active');
@@ -43,7 +57,7 @@ function imageZoom(idImage){
   let containerFood = $('#food');
   let containerAll = $('html');
 
-  $(idImage).click(()=>{
+  $(idImage).click(() => {
     if ($(idImage).hasClass('zoom')) {
       $(idImage).removeClass('zoom');
       containerImages.removeClass('zoomBox');
@@ -68,6 +82,31 @@ function accordionMobile(idDepartment, department, idZone, zone){
   });
 }
 
+/**
+ * 
+ * @param {*} index 
+ * @param {*} department 
+ * @param {*} evento 
+ * @param {*} idZone 
+ * @param {*} zone 
+ */
+
+function coberturaMobile(index,department,evento,idZone,zone){
+  let eventBtn = evento.target;
+  let classBtn = eventBtn.classList[0];
+
+  if ($('.sideBar__box').find('.btn-mobile').length > 0) {
+    $('.btn-mobile').remove();
+    $('.btn').removeClass('active');
+    $('.'+classBtn+'.btn-'+ idZone +'').after( '<ul class="' + classBtn + '-mobile btn-mobile"></ul>' );
+    // Render of Department
+    accordionMobile(index, department, idZone, zone);
+  } else {
+    $('.'+classBtn+'.btn-'+ idZone +'').after( '<ul class="' + classBtn + '-mobile btn-mobile"></ul>' );
+    accordionMobile(index, department, idZone, zone);
+  }
+}
+
 
 $(document).ready(function() {
   //Header
@@ -85,56 +124,68 @@ $(document).ready(function() {
 
 
   //JSON
-  // console.log(coberturaData["ZONA CENTRO"].ANTIOQUIA);
-
   var DepartamentosN = Object.keys(coberturaData["ZONA NORTE"]);
   var DepartamentosC = Object.keys(coberturaData["ZONA CENTRO"]);
   var DepartamentosS = Object.keys(coberturaData["ZONA SUR"]);
-  var Zonas = Object.keys(coberturaData);
+  var Zonas = Object.keys(coberturaData); 
 
-  // console.log(Departamentos);
 
+
+  
   DepartamentosN.forEach((departamento , i) => {
     $(".coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn btn-norte">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
-    defaultDepartment('0', departamento, 'norte' ,'ZONA NORTE');
-    $('.coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box button.btn-'+i+'').on("click", function() {
-      defaultDepartment(i, departamento, 'norte' ,'ZONA NORTE');
+    if ( $(window).width() > 760 ) {
+      // First view before click
+      defaultDepartment('0', departamento, 'norte' ,'ZONA NORTE');
+    }
+    
+    $('.coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) {
+    // If > of 760 Desktop | If minor <= 760 Mobile
+      if ( $(window).width() > 760 ) {
+        defaultDepartment(i, departamento, 'norte' ,'ZONA NORTE');
+      }else{
+        coberturaMobile(i , departamento, e ,'norte', 'ZONA NORTE');
+      }
+
     }); 
   }); 
-
+ 
   DepartamentosC.forEach((departamento, i) => {
     $(".coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn btn-centro">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
-    defaultDepartment('0', departamento, 'centro', 'ZONA CENTRO');
-    $('.coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box button.btn-'+i+'').on("click", function() {
-      defaultDepartment(i, departamento, 'centro' ,'ZONA CENTRO');
+    if ( $(window).width() > 760 ) {
+      // First view before click
+      defaultDepartment('0', departamento, 'centro', 'ZONA CENTRO');
+    }
+    
+    $('.coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) {
+      // If > of 760 Desktop | If minor <= 760 Mobile
+      if ( $(window).width() > 760 ) {
+        defaultDepartment(i, departamento, 'centro' ,'ZONA CENTRO');
+      }else{
+        coberturaMobile(i , departamento, e ,'centro', 'ZONA CENTRO');
+      }
+
     });
   });
 
   DepartamentosS.forEach((departamento, i) => {
     $(".coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box").append('<button class="btn-'+ i +' btn btn-sur">' + departamento + '</button>');
     // Function that create the ul container with li childs and add/remove active class
-    defaultDepartment('0', departamento, 'sur', 'ZONA SUR');
-    $('.coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) {
-      // Accordion
-      let eventBtn = e.target;
-      let classBtn = eventBtn.classList[0];
-
-      if ($('.sideBar__box').find('.btn-mobile').length > 0) {
-        $('.btn-mobile').remove();
-        $('.'+classBtn+'.btn-sur').after( '<ul class="' + classBtn + '-mobile btn-mobile"></ul>' );
-        // Render of Department
-        accordionMobile(i, departamento, 'sur', 'ZONA SUR');
-
-      } else {
-        $('.'+classBtn+'.btn-sur').after( '<ul class="' + classBtn + '-mobile btn-mobile"></ul>' );
-        accordionMobile(i, departamento, 'sur', 'ZONA SUR');
+      if ( $(window).width() > 760 ) {
+        // First view before click
+        defaultDepartment('0', departamento, 'sur', 'ZONA SUR');
       }
 
+    $('.coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) { 
+      // If > of 760 Desktop | If minor <= 760 Mobile
+      if ( $(window).width() > 760 ) {
+        defaultDepartment(i, departamento, 'sur', 'ZONA SUR');
+      }else{
+        coberturaMobile(i , departamento, e ,'sur', 'ZONA SUR'); 
+      }
 
-      // Accordion 
-      defaultDepartment(i, departamento, 'sur', 'ZONA SUR'); 
     }); 
   });
 
