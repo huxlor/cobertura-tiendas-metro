@@ -141,11 +141,17 @@ $(document).ready(function() {
     }
     
     $('.coverage-search__container__nonfood__info #z-norte .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) {
-    // If > of 760 Desktop | If minor <= 760 Mobile
-      if ( $(window).width() > 760 ) {
-        defaultDepartment(i, departamento, 'norte' ,'ZONA NORTE');
+      // If > of 760 Desktop | If minor <= 760 Mobile
+      if ( $(window).width() <= 760 ) {
+        // If has class Active and click in the same botton close that one
+        if (!$('.btn-'+i+'').hasClass('active')) {
+          coberturaMobile(i , departamento, e ,'norte', 'ZONA NORTE');
+        }else{
+          $('.btn-mobile').remove();
+          $('.btn').removeClass('active');
+        }
       }else{
-        coberturaMobile(i , departamento, e ,'norte', 'ZONA NORTE');
+        defaultDepartment(i, departamento, 'norte' ,'ZONA NORTE');
       }
 
     }); 
@@ -161,10 +167,16 @@ $(document).ready(function() {
     
     $('.coverage-search__container__nonfood__info #z-centro .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) {
       // If > of 760 Desktop | If minor <= 760 Mobile
-      if ( $(window).width() > 760 ) {
-        defaultDepartment(i, departamento, 'centro' ,'ZONA CENTRO');
+      if ( $(window).width() <= 760 ) {
+        // If has class Active and click in the same botton close that one
+        if (!$('.btn-'+i+'').hasClass('active')) {
+          coberturaMobile(i , departamento, e ,'centro', 'ZONA CENTRO');
+        }else{
+          $('.btn-mobile').remove();
+          $('.btn').removeClass('active');
+        }
       }else{
-        coberturaMobile(i , departamento, e ,'centro', 'ZONA CENTRO');
+        defaultDepartment(i, departamento, 'centro' ,'ZONA CENTRO');
       }
 
     });
@@ -180,10 +192,16 @@ $(document).ready(function() {
 
     $('.coverage-search__container__nonfood__info #z-sur .grid-container .sideBar__box button.btn-'+i+'').on("click", function(e) { 
       // If > of 760 Desktop | If minor <= 760 Mobile
-      if ( $(window).width() > 760 ) {
-        defaultDepartment(i, departamento, 'sur', 'ZONA SUR');
+      if ( $(window).width() <= 760 ) {
+        // If has class Active and click in the same botton close that one
+        if (!$('.btn-'+i+'').hasClass('active')) {
+          coberturaMobile(i , departamento, e ,'sur', 'ZONA SUR');
+        }else{
+          $('.btn-mobile').remove();
+          $('.btn').removeClass('active');
+        }
       }else{
-        coberturaMobile(i , departamento, e ,'sur', 'ZONA SUR'); 
+        defaultDepartment(i, departamento, 'sur', 'ZONA SUR');
       }
 
     }); 
