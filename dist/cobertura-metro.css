@@ -958,8 +958,60 @@ strong {
                   #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box button.active {
                     color: #DF0209;
                     border-bottom: 1px solid #DF0209; }
+                    @media screen and (max-width: 760px) {
+                      #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box button.active {
+                        border-bottom: 2px solid #DF0209; } }
                   #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box button::first-letter {
                     text-transform: uppercase; }
+                  @media screen and (max-width: 760px) {
+                    #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box button {
+                      border-top: 1px solid #f5f5f5;
+                      border-bottom: 1px solid #f5f5f5;
+                      min-height: 55px;
+                      position: relative; }
+                      #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box button:after {
+                        content: '+';
+                        position: absolute;
+                        right: 15px;
+                        font-size: 20px;
+                        top: calc(50% - 12px);
+                        color: #d3d3d3; }
+                      #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box button.active:after {
+                        content: '-';
+                        position: absolute;
+                        right: 15px;
+                        font-size: 30px;
+                        top: calc(50% - 17px);
+                        color: #d3d3d3; } }
+                #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box ul {
+                  display: flex;
+                  flex-wrap: wrap;
+                  flex-direction: column;
+                  flex-grow: 2;
+                  padding: 15px 25px;
+                  margin-left: 20px;
+                  background: #f5f5f5;
+                  max-height: 800px;
+                  padding-left: 20px !important;
+                  overflow: hidden;
+                  overflow-x: auto;
+                  text-align: left; }
+                  #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box ul li {
+                    line-height: 35px;
+                    font-size: 15px;
+                    font-weight: 400;
+                    margin-right: 40px; }
+                    #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box ul li::before {
+                      content: "\2022";
+                      font-size: 20px;
+                      color: #DF0209;
+                      margin-right: 8px; }
+                  @media screen and (max-width: 760px) {
+                    #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box ul {
+                      margin-left: 0; } }
+              @media screen and (max-width: 760px) {
+                #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar {
+                  background: #fff; } }
             #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .centerBox {
               grid-area: centerBox; }
               #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .centerBox ul {
@@ -999,5 +1051,6 @@ strong {
               #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container {
                 grid-template-columns: 1fr;
                 grid-template-rows: .5fr 1fr;
-                grid-template-areas: "sideBar" "centerBox"; } }
+                grid-template-areas: "sideBar" "centerBox";
+                border: none; } }
 
