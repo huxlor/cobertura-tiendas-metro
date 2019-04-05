@@ -200,7 +200,20 @@ strong{
                                 height: 100vh;
                                 background-color: #fff;
                             }
+
+                            span{
+                                font-size: 20px;
+                                font-weight: bold;
+                                padding: 20px;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                cursor: pointer;
+                                display: none;
+                            }
                         }
+
+
                     }
 
                     @media screen and (max-width: 760px) {
@@ -358,6 +371,11 @@ strong{
                                                 font-size: 20px;
                                                 color: $color-red;
                                                 margin-right: 8px;
+                                            }
+
+                                            @media screen and (max-width: 760px) {
+                                                line-height: 15px;
+                                                font-size: 10px;
                                             }
                                         }
 

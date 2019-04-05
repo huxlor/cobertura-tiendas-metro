@@ -875,6 +875,15 @@ strong {
             width: 100%;
             height: 100vh;
             background-color: #fff; }
+          #landing_cobertura_metro .coverage-search__container__food .grid-container .centerBox__hideBox span {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            display: none; }
         @media screen and (max-width: 760px) {
           #landing_cobertura_metro .coverage-search__container__food .grid-container {
             grid-template-columns: 1fr;
@@ -1006,6 +1015,10 @@ strong {
                       font-size: 20px;
                       color: #DF0209;
                       margin-right: 8px; }
+                    @media screen and (max-width: 760px) {
+                      #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box ul li {
+                        line-height: 15px;
+                        font-size: 10px; } }
                   @media screen and (max-width: 760px) {
                     #landing_cobertura_metro .coverage-search__container__nonfood__info .tabContentZone .grid-container .sideBar__box ul {
                       margin-left: 0; } }
