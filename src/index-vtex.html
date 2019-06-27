@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce">
+<head>
+    <vtex:template id="metas" />
+    <vtex:template id="favIcon"/>
+    <link rel="stylesheet" href="/files/cobertura-metro.css"/>
+</head>
+
+<body class="department">
+  <!-- Overlays -->
+<vtex:template id="overlay-delivery-window" />
+<vtex:template id="overlay-store-selector" />
+<vtex:template id="overlay-product-quickview" />
+<vtex:template id="overlay-added-to-cart" />
+<vtex:template id="overlay-add-shop-list" />
+<vtex:template id="overlay-added-to-lists" />
+<vtex:template id="overlay-store" />
+
+<style></style>
+
+
+
+<!-- /Overlays -->
+
+<div id="highlight-background"></div>
+
+<!-- Preload Screen -->
+<vtex:template id="preload-screen" />
+<!-- Preload Screen -->
+
+  <!-- Header -->
+  <vtex:template id="header" />
+  <!-- /Header -->
+
+  <!-- Navigation -->
+  <vtex:template id="navigation" />
+  <!-- /Navigation -->
+
+  <div id="landing_cobertura_metro">
+    <div class="wrapper">
+        <div class="center">
+            <div class="title">
+                <h1>Cobertura</h1>
+            </div>
+            <section class="coverage-search">
+                <p class="coverage-search__subtitle">Conocé nuestra cobertura para:</p>
+                <div class="coverage-search__header">
+                    <div class="header-tabs">
+                        <button class="header-tabs__tab tablinks food">
+                            <i class="icon icon-mercado"></i>         
+                            Compras de Mercado
+                        </button>
+                        <button class="header-tabs__tab tablinks nonfood">
+                            <i class="icon icon-tecnologia"></i>
+                            Compras de Técnologia
+                        </button>
+                    </div>
+                </div>
+                <div class="coverage-search__container">
+                        <div id="food" class="coverage-search__container__food tabcontent animated fadeIn fast">
+                            <div class="grid-container">
+                                <div class="sideBar">
+                                    <div class="sideBar__box">
+                                        <button class="tabLinksImg b-01 active">Bogotá - San Cayetano</button>
+                                        <button class="tabLinksImg b-02">Bogotá - Alqueria</button>
+                                    </div>
+                                </div>
+                                <div class="centerBox">
+                                    <div id="boxGeneral" class="centerBox__hideBox">
+                                        <span class="close__icon">x</span>
+                                        <img id="b-img-01" class="tabContentImg animated fadeIn slow" src="/arquivos/MapaDeCobertura-Bogota-SanCayetano.jpg" alt="San Cayetano" width='290' height='320'/>
+                                        <img id="b-img-02" class="tabContentImg animated fadeIn slow" src="/arquivos/MapaDeCobertura-Bogota-Alqueria.jpg" alt="Alqueria"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="nonfood" class="coverage-search__container__nonfood tabcontent animated fadeIn fast">
+                            <div class="coverage-search__container__nonfood__zones">
+                                <button class="zone tabLinksZone z-n"><i class="font-icn zona-norte"></i>Zona Norte</button>
+                                <button class="zone tabLinksZone z-c"><i class="font-icn zona-centro"></i>Zona Centro</button>
+                                <button class="zone tabLinksZone z-s"><i class="font-icn zona-sur"></i>Zona Sur</button>
+                            </div>
+                            <div class="coverage-search__container__nonfood__info">
+                                <div id="z-norte" class="tabContentZone animated fadeIn fast">
+                                    <div class="grid-container">
+                                        <div class="sideBar">
+                                            <div class="sideBar__box"></div>
+                                        </div>
+                                        <div class="centerBox">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="z-centro" class="tabContentZone animated fadeIn fast">
+                                    <div class="grid-container">
+                                        <div class="sideBar">
+                                            <div class="sideBar__box"></div>
+                                        </div>
+                                        <div class="centerBox">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="z-sur" class="tabContentZone animated fadeIn fast">
+                                    <div class="grid-container">
+                                        <div class="sideBar">
+                                            <div class="sideBar__box"></div>
+                                        </div>
+                                        <div class="centerBox">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                </div>
+            </section>
+        </div>
+    </div>    
+</div>
+      
+  <!-- Footer -->
+  <vtex:template id="footer" />
+  <script src="/files/cobertura-metro.js" type="text/javascript" charset="utf-8"></script>
+ 
+</body>
+</html>

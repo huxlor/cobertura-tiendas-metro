@@ -13,7 +13,7 @@ var coberturaData = require('./cobertura-metro-obj');
  * @param {String} oneClass Class of the element which shows the content
  * @param {String} twoClass Class of the button which receives the click
  */
-function changeType(evt, type, oneClass, twoClass){
+function  changeType(evt, type, oneClass, twoClass){
   let i,tabContent,tabLinks;
 
   // Get all elements with class="tabcontent" and hide them
@@ -122,6 +122,18 @@ function coberturaMobile(index,department,evento,idZone,zone){
 
 
 $(document).ready(function() {
+  // URL Development
+  if (window.location.href.indexOf("cobertura#mercado") > -1) {
+    changeType(event, 'food', '.tabcontent', '.tablinks');
+    $('.header-tabs__tab.tablinks.food').addClass('active');
+  }
+
+  if (window.location.href.indexOf("cobertura#tecnologia-y-hogar") > -1) {
+    changeType(event, 'nonfood', '.tabcontent', '.tablinks');
+    $('.header-tabs__tab.tablinks.nonfood').addClass('active');
+  }
+
+
   //Header
   $('.tablinks.food').click(() => {changeType(event, 'food', '.tabcontent', '.tablinks');});
   $('.tablinks.nonfood').click(() => {changeType(event, 'nonfood', '.tabcontent', '.tablinks');});     
