@@ -118,6 +118,18 @@ function coberturaMobile(index,department,evento,idZone,zone){
   }
 }
 
+// Change the URL Hash
+/**
+ * 
+ * @param {Boton que activa el evento} event 
+ * @param {String del Hash a mostrar} newHash 
+ */
+function coberturaHash(event,newHash) {
+    $(document).on('click', event ,() => {
+      location.hash = newHash;
+  });
+}
+
 
 
 
@@ -132,6 +144,10 @@ $(document).ready(function() {
     changeType(event, 'nonfood', '.tabcontent', '.tablinks');
     $('.header-tabs__tab.tablinks.nonfood').addClass('active');
   }
+
+
+coberturaHash('.header-tabs__tab.tablinks.food', '#mercado2');
+coberturaHash('.header-tabs__tab.tablinks.nonfood', '#tecnologia-y-hogar2');
 
 
   //Header
