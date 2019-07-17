@@ -845,7 +845,8 @@ strong {
           @media screen and (max-width: 760px) {
             #landing_cobertura_metro .coverage-search__container__food .grid-container .sideBar {
               margin-right: 0px;
-              height: 100px; } }
+              height: 250px;
+              margin-bottom: 30px; } }
         #landing_cobertura_metro .coverage-search__container__food .grid-container .centerBox {
           grid-area: centerBox;
           background: transparent; }
