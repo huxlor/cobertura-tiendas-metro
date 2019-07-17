@@ -157,6 +157,10 @@ coberturaHash('.header-tabs__tab.tablinks.nonfood', '#tecnologia-y-hogar');
   //Food Events
   $('.tabLinksImg.b-01').click(() => {changeType(event, 'b-img-01', '.tabContentImg', '.tabLinksImg');});
   $('.tabLinksImg.b-02').click(() => {changeType(event, 'b-img-02', '.tabContentImg', '.tabLinksImg');});
+  $('.tabLinksImg.b-03').click(() => {changeType(event, 'b-img-03', '.tabContentImg', '.tabLinksImg');});
+  $('.tabLinksImg.b-04').click(() => {changeType(event, 'b-img-04', '.tabContentImg', '.tabLinksImg');});
+  $('.tabLinksImg.b-05').click(() => {changeType(event, 'b-img-05', '.tabContentImg', '.tabLinksImg');});
+  $('.tabLinksImg.b-06').click(() => {changeType(event, 'b-img-06', '.tabContentImg', '.tabLinksImg');});
 
   //Zones Eventes
   $('.tabLinksZone.z-n').click(() => {changeType(event, 'z-norte', '.tabContentZone', '.tabLinksZone');});
@@ -253,6 +257,10 @@ coberturaHash('.header-tabs__tab.tablinks.nonfood', '#tecnologia-y-hogar');
 
 imageZoom('#b-img-01', '.close__icon');
 imageZoom('#b-img-02', '.close__icon');
+imageZoom('#b-img-03', '.close__icon');
+imageZoom('#b-img-04', '.close__icon');
+imageZoom('#b-img-05', '.close__icon');
+imageZoom('#b-img-06', '.close__icon');
 
 }); 
 
