@@ -146,8 +146,8 @@ $(document).ready(function() {
   }
 
 
-coberturaHash('.header-tabs__tab.tablinks.food', '#mercado2');
-coberturaHash('.header-tabs__tab.tablinks.nonfood', '#tecnologia-y-hogar2');
+coberturaHash('.header-tabs__tab.tablinks.food', '#mercado');
+coberturaHash('.header-tabs__tab.tablinks.nonfood', '#tecnologia-y-hogar');
 
 
   //Header
