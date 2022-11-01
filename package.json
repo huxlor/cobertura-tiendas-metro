@@ -12,7 +12,7 @@
   "dependencies": {
     "babel": "^6.23.0",
     "bootstrap-grid": "^3.0.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "jquery-zoom": "^1.7.21",
     "path": "^0.12.7",
     "sass": "^1.14.1",
